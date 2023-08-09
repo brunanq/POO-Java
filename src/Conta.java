@@ -30,6 +30,9 @@ public class Conta {
     public float getSaldoConta() {
         return this.saldoConta;
     }
+    public boolean isStatusConta(){
+        return this.statusConta;
+    }
     public void setNomeCliente(String nome) {
         this.nomeCliente = nome;
     }
@@ -58,16 +61,16 @@ public class Conta {
     }
 
     public void fecharConta(){
-        if ((this.saldoConta != 0f) || (this.saldoConta < 0)) {
+        if ((getSaldoConta() != 0f) || (getSaldoConta() < 0)) {
             System.out.println("Não foi possível fechar conta.");
         } else {
-           this.statusConta = false; 
+           setStatusConta(false); 
            System.out.println("Conta fechada :(");
         }
     }
 
     public void fazerDeposito(float deposito){
-        if (this.statusConta){
+        if (isStatusConta()){
             this.saldoConta = (getSaldoConta() + deposito);
         } else {
             System.out.println("Conta fechada. Não foi possível depositar.");
@@ -76,7 +79,7 @@ public class Conta {
     }
 
     public void sacarConta(float saque){
-        if (this.statusConta){
+        if (isStatusConta()){
             if ((getSaldoConta() - saque) < 0){
                 System.out.println("Saldo insuficiente.");
             } else {
