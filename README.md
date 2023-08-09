@@ -18,11 +18,11 @@ Regras:
 - Para fechar a conta:
     1. não pode ter saldo; OK
     2. não pode ter débitos. OK
-- Para depositar, a conta não pode estar fechada;
+- Para depositar, a conta não pode estar fechada; OK
 - Para sacar:
-    1. a conta não pode estar fechada;
-    2. precisa ter algum saldo;
-    3. o saque deve ser menor ou igual ao saldo da conta;
+    1. a conta não pode estar fechada; OK
+    2. precisa ter algum saldo; OK
+    3. o saque deve ser menor ou igual ao saldo da conta; OK
 - Para pagar a mensalidade, debita-se do cliente da CC 12 reais, e do cliente da CP 20 reais.
 
 Todos os métodos são públicos, e devem ser também criados os métodos getter/setter de cada atributo.

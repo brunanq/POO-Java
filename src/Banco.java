@@ -5,8 +5,7 @@ public class Banco {
         
         Conta ernesto = new Conta("Ernesto", "CC", 02, 0, false);
         ernesto.status();
-        ernesto.sacarConta(100f);
-        ernesto.fecharConta();
+        ernesto.sacarConta(50f);
         ernesto.status();
     }   
 

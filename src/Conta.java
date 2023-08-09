@@ -67,12 +67,24 @@ public class Conta {
     }
 
     public float fazerDeposito(float deposito){
-        this.saldoConta = (this.saldoConta + deposito);
+        if (this.statusConta){
+            this.saldoConta = (this.saldoConta + deposito);
+        } else {
+            System.out.println("Conta fechada. Não foi possível depositar.");
+        }
         return this.saldoConta;
     }
 
     public float sacarConta(float saque){
-        this.saldoConta = (this.saldoConta - saque);
+        if (this.statusConta){
+            if ((this.saldoConta - saque) < 0){
+                System.out.println("Saldo insuficiente.");
+            } else {
+                this.saldoConta = (this.saldoConta - saque);
+            }
+        }else{
+            System.out.println("Conta fechada. Não foi possível sacar.");
+        }
         return this.saldoConta;
     }
 
