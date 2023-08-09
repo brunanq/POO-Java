@@ -7,12 +7,12 @@ public class Conta {
 
 //------------CONSTRUTOR------------\\
 
-    public Conta(String nome, String tipo, int numero, float saldo, boolean status){
+    public Conta(String nome, String tipo, int numero){
         this.nomeCliente = nome;
         this.tipoConta = tipo;
         this.numeroConta = numero;
-        this.saldoConta = saldo;
-        this.statusConta = status; 
+        this.saldoConta = 0;
+        this.statusConta = false; 
         this.abrirConta();
     }
 
@@ -50,9 +50,9 @@ public class Conta {
 
     public void abrirConta(){
         setStatusConta(true);
-        if (this.tipoConta.equals("CC")){
+        if (getTipoConta().equals("CC")){
             this.fazerDeposito(50f);
-        } else if (this.tipoConta.equals("CP")){
+        } else if (getTipoConta().equals("CP")){
             this.fazerDeposito(150f);
         }
     }
@@ -66,46 +66,46 @@ public class Conta {
         }
     }
 
-    public float fazerDeposito(float deposito){
+    public void fazerDeposito(float deposito){
         if (this.statusConta){
-            this.saldoConta = (this.saldoConta + deposito);
+            this.saldoConta = (getSaldoConta() + deposito);
         } else {
             System.out.println("Conta fechada. Não foi possível depositar.");
         }
-        return this.saldoConta;
+
     }
 
-    public float sacarConta(float saque){
+    public void sacarConta(float saque){
         if (this.statusConta){
-            if ((this.saldoConta - saque) < 0){
+            if ((getSaldoConta() - saque) < 0){
                 System.out.println("Saldo insuficiente.");
             } else {
-                this.saldoConta = (this.saldoConta - saque);
+                this.saldoConta = (getSaldoConta() - saque);
             }
         }else{
             System.out.println("Conta fechada. Não foi possível sacar.");
         }
-        return this.saldoConta;
+
     }
 
-    public float pagarMensalidade(int mensalidade){
-        if (this.tipoConta.equals("CC")){
+    public void pagarMensalidade(int mensalidade){
+        if (getTipoConta().equals("CC")){
             mensalidade = 12;
-            this.saldoConta = this.saldoConta - mensalidade;
-        } else if (this.tipoConta.equals("CP")){
+            this.saldoConta = getSaldoConta() - mensalidade;
+        } else if (getTipoConta().equals("CP")){
             mensalidade = 20;
-             this.saldoConta = this.saldoConta - mensalidade;
+             this.saldoConta = getSaldoConta() - mensalidade;
         }
-        return this.saldoConta;
+
         }
     
 //------------STATUS------------\\
 
     public void status(){
-        System.out.println("Nome: " + this.nomeCliente);
-        System.out.println("Tipo: " + this.tipoConta);
-        System.out.println("Numero: " + this.numeroConta);
-        System.out.println("Saldo: " + this.saldoConta);
+        System.out.println("Nome: " + getNomeCliente());
+        System.out.println("Tipo: " + getTipoConta());
+        System.out.println("Numero: " + getNumeroConta());
+        System.out.println("Saldo: " + getSaldoConta());
         System.out.println("Status: " + this.statusConta);
     }
 
