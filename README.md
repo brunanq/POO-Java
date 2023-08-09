@@ -9,15 +9,15 @@ Deve ser possível executar as seguintes ações:
 - Abrir conta; OK
 - Fechar conta; OK 
 - Depositar; OK
-- Sacar; OK;+-
-- Pagar mensalidade.
+- Sacar; OK
+- Pagar mensalidade. OK
 
 Regras:
-- Se for aberta conta tipo CC, ganha-se 50 reais;
-- Se for aberta conta tipo CP, ganha-se 150 reais;
+- Se for aberta conta tipo CC, ganha-se 50 reais; OK
+- Se for aberta conta tipo CP, ganha-se 150 reais; OK
 - Para fechar a conta:
-    1. não pode ter saldo;
-    2. não pode ter débitos.
+    1. não pode ter saldo; OK
+    2. não pode ter débitos. OK
 - Para depositar, a conta não pode estar fechada;
 - Para sacar:
     1. a conta não pode estar fechada;

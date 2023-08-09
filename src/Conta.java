@@ -17,6 +17,7 @@ public class Conta {
     }
 
 //------------GET/SET------------\\
+
     public String getNomeCliente() {
         return this.nomeCliente;
     }
@@ -49,13 +50,23 @@ public class Conta {
 
     public void abrirConta(){
         setStatusConta(true);
+        if (this.tipoConta.equals("CC")){
+            this.fazerDeposito(50f);
+        } else if (this.tipoConta.equals("CP")){
+            this.fazerDeposito(150f);
+        }
     }
 
     public void fecharConta(){
-        this.statusConta = false;
+        if ((this.saldoConta != 0f) || (this.saldoConta < 0)) {
+            System.out.println("Não foi possível fechar conta.");
+        } else {
+           this.statusConta = false; 
+           System.out.println("Conta fechada :(");
+        }
     }
 
-    public float depositarSaldo(float deposito){
+    public float fazerDeposito(float deposito){
         this.saldoConta = (this.saldoConta + deposito);
         return this.saldoConta;
     }
@@ -76,7 +87,6 @@ public class Conta {
         return this.saldoConta;
         }
     
-
 //------------STATUS------------\\
 
     public void status(){
