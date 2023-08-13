@@ -11,8 +11,8 @@ public class Conta {
         this.nomeCliente = nome;
         this.tipoConta = tipo;
         this.numeroConta = numero;
-        this.saldoConta = 0;
-        this.statusConta = false; 
+        setSaldoConta(0);
+        setStatusConta(false);
         this.abrirConta();
     }
 
@@ -79,14 +79,12 @@ public class Conta {
     }
 
     public void sacarConta(float saque){
-        if (isStatusConta()){
-            if ((getSaldoConta() - saque) < 0){
-                System.out.println("Saldo insuficiente.");
-            } else {
-                this.saldoConta = (getSaldoConta() - saque);
-            }
-        }else{
+        if (!isStatusConta()){ 
             System.out.println("Conta fechada. Não foi possível sacar.");
+        } else if ((getSaldoConta() - saque) >= 0){
+            this.saldoConta = (getSaldoConta() - saque);
+        } else {
+            System.out.println("Saldo insuficiente");
         }
 
     }
